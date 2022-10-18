@@ -1,0 +1,12 @@
+/node_modules
+npm-debug.log*
+.vscode
+
+# testing
+/coverage
+**/coverage
+**/__coverage__
+junit.xml
+test-report.xml
+
+.env

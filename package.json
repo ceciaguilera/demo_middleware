@@ -1,0 +1,78 @@
+{
+  "name": "ms-middleware",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index",
+    "start:debug": "nodemon --inspect-brk index",
+    "jest": "jest --onlyChanged --watch",
+    "test": "jest",
+    "eslint:analyze": "eslint --ext .js .",
+    "eslint:fix": "eslint --fix --ext .js .",
+    "_packages:force-update": "npx npm-check-updates -u"
+  },
+  "jest": {
+    "testResultsProcessor": "jest-sonar-reporter",
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "__tests__/coverage",
+      "__tests__/*.xml"
+    ],    
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "__tests__/coverage",
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "text-summary",
+      "clover",
+      "cobertura"
+    ],
+    "reporters": [
+      "default",
+      [
+        "jest-junit",
+        {
+          "suiteName": "Jest Tests",
+          "suiteNameTemplate": "{filepath}",
+          "outputDirectory": ".",
+          "outputName": "__tests__/junit.xml"
+        }
+      ]
+    ]
+  },
+  "jestSonar": {
+    "reportPath": "__tests__",
+    "reportFile": "test-report.xml",
+    "indent": 4
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/identity": "^1.2.3",
+    "@azure/keyvault-secrets": "^4.1.0",
+    "applicationinsights": "^1.8.10",
+    "axios": "^0.21.1",
+    "axios-retry": "^3.1.9",
+    "compression": "^1.7.4",
+    "custom-env": "^2.0.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-promise-router": "^4.0.1",
+    "jest": "^26.6.3",
+    "morgan": "^1.10.0",
+    "run-parallel": "^1.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.20.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.5",
+    "jest-junit": "^13.0.0",
+    "jest-sonar-reporter": "^2.0.0",
+    "nodemon": "^2.0.7"
+  }
+}
